@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "types": [
+            "p5/global"
+        ],
+        "watch": true
+    }
+}
