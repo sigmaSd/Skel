@@ -1,4 +1,4 @@
-function start() {
+function main() {
   const btn = document.createElement("button");
   btn.onclick = () => {
     alert("hello");
@@ -6,4 +6,4 @@ function start() {
   btn.textContent = "Say Hello";
   document.body.appendChild(btn);
 }
-window.onload = start;
+window.onload = main;
