@@ -1,5 +1,6 @@
 import { Path } from "https://raw.githubusercontent.com/sigmaSd/Path/master/path.ts";
 import { createP5 } from "./p5.ts";
+import { createPuppet } from "./puppet.ts";
 import { createWeb } from "./web.ts";
 
 async function newProject(
@@ -11,9 +12,9 @@ async function newProject(
       await createP5(skelsPath, projectPath, false);
       console.log(`successfully created ${projectPath.toString()}`);
       console.log(`To start:
-                  - cd in ${projectPath.toString()}
-                  - run 'tsc -p tsconfig.json'
-                  - run 'npx browser-sync start --server -f -w'
+                  - cd ${projectPath.toString()}
+                  - tsc -p tsconfig.json
+                  - npx browser-sync start --server -f -w
                   - vim sketch.ts
                   `);
 
@@ -23,10 +24,20 @@ async function newProject(
       await createWeb(skelsPath, projectPath);
       console.log(`successfully created ${projectPath.toString()}`);
       console.log(`To start:
-                  - cd in ${projectPath.toString()}
-                  - run 'tsc -p tsconfig.json'
-                  - run 'npx browser-sync start --server -f -w'
+                  - cd ${projectPath.toString()}
+                  - tsc -p tsconfig.json
+                  - npx browser-sync start --server -f -w
                   - vim index.ts
+                  `);
+      break;
+    }
+    case "puppet": {
+      await createPuppet(skelsPath, projectPath);
+      console.log(`successfully created ${projectPath.toString()}`);
+      console.log(`To start:
+                  - cd ${projectPath.toString()}
+                  - deno run -A --no-check src/main.ts
+                  - vim src/main.ts
                   `);
       break;
     }
@@ -38,7 +49,7 @@ async function newProject(
 
 const args = Deno.args;
 if (args.length !== 2) {
-  console.log("skels projectName [p5-ts|web-ts]");
+  console.log("skels projectName [p5-ts|web-ts|puppet]");
   Deno.exit(1);
 }
 await newProject({ projectPath: args[0].asPath(), skel: args[1] });
