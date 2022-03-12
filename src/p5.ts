@@ -15,19 +15,11 @@ export async function getLatestP5jsUrl(): Promise<string | undefined> {
 export async function createP5(
   skelsPath: Path,
   dstPath: Path,
-  update: boolean,
 ) {
   const p5SkelPath = skelsPath.join("p5-ts");
   const url = await getLatestP5jsUrl();
-  if (!p5SkelPath.join("p5.js").exists() || update) {
-    await download(url!, p5SkelPath.join("p5.js").toString());
-    console.log(p5SkelPath.toString());
-  }
   await copy_dir(p5SkelPath, dstPath);
-  await Deno.copyFile(
-    p5SkelPath.join("p5.js").toString(),
-    dstPath.join("p5.js").toString(),
-  );
+  await download(url!, dstPath.join("p5.js").toString());
   await Deno.run({
     cmd: ["npm", "install", "-D", "@types/p5"],
     cwd: dstPath.toString(),

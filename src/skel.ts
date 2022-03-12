@@ -11,7 +11,7 @@ async function newProject(
   ).parent()!.parent()!.join("skels");
   switch (skel) {
     case "p5-ts": {
-      await createP5(skelsPath, projectPath, false);
+      await createP5(skelsPath, projectPath);
       console.log(`successfully created ${projectPath.toString()}`);
       console.log(`To start:
                   - cd ${projectPath.toString()}

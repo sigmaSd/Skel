@@ -8,7 +8,6 @@ export async function download(url: string, filename: string) {
 }
 
 export async function copy_dir(srcPath: Path, dstPath: Path) {
-  console.log("copy from ", srcPath, " to ", dstPath);
   if (srcPath.isFile()) {
     throw "Incorrect usage";
   }
