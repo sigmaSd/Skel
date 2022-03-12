@@ -6,7 +6,9 @@ import { createWeb } from "./web.ts";
 async function newProject(
   { projectPath, skel }: { projectPath: Path; skel: string },
 ) {
-  const skelsPath = new Path(Deno.env.get("SKELS") || "skels");
+  const skelsPath = new Path(
+    import.meta.url.replace("file://", ""),
+  ).parent()!.parent()!.join("skels");
   switch (skel) {
     case "p5-ts": {
       await createP5(skelsPath, projectPath, false);
