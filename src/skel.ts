@@ -1,4 +1,5 @@
 import { Path } from "https://raw.githubusercontent.com/sigmaSd/Path/master/path.ts";
+import { createFox } from "./fox.ts";
 import { createP5 } from "./p5.ts";
 import { createPuppet } from "./puppet.ts";
 import { createWeb } from "./web.ts";
@@ -40,6 +41,16 @@ async function newProject(
                   - cd ${projectPath.toString()}
                   - deno run -A --no-check src/main.ts
                   - vim src/main.ts
+                  `);
+      break;
+    }
+    case "fox": {
+      await createFox(skelsPath, projectPath);
+      console.log(`successfully created ${projectPath.toString()}`);
+      console.log(`To start:
+                  - cd ${projectPath.toString()}
+                  - tsconfig -p tsconfig.json
+                  - web-ext run
                   `);
       break;
     }
