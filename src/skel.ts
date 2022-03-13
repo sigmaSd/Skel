@@ -11,7 +11,7 @@ async function newProject(
     import.meta.url.replace("file://", ""),
   ).parent()!.parent()!.join("skels");
   switch (skel) {
-    case "p5-ts": {
+    case "--p5": {
       await createP5(skelsPath, projectPath);
       console.log(`successfully created ${projectPath.toString()}`);
       console.log(`To start:
@@ -23,7 +23,7 @@ async function newProject(
 
       break;
     }
-    case "web-ts": {
+    case "--web": {
       await createWeb(skelsPath, projectPath);
       console.log(`successfully created ${projectPath.toString()}`);
       console.log(`To start:
@@ -34,7 +34,7 @@ async function newProject(
                   `);
       break;
     }
-    case "puppet": {
+    case "--puppet": {
       await createPuppet(skelsPath, projectPath);
       console.log(`successfully created ${projectPath.toString()}`);
       console.log(`To start:
@@ -44,7 +44,7 @@ async function newProject(
                   `);
       break;
     }
-    case "fox": {
+    case "--fox": {
       await createFox(skelsPath, projectPath);
       console.log(`successfully created ${projectPath.toString()}`);
       console.log(`To start:
@@ -62,7 +62,7 @@ async function newProject(
 
 const args = Deno.args;
 if (args.length !== 2) {
-  console.log("skels projectName [p5-ts|web-ts|puppet]");
+  console.log("skels projectName --[p5|web|puppet|fox]");
   Deno.exit(1);
 }
 await newProject({ projectPath: args[0].asPath(), skel: args[1] });

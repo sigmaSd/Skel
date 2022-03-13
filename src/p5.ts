@@ -16,7 +16,7 @@ export async function createP5(
   skelsPath: Path,
   dstPath: Path,
 ) {
-  const p5SkelPath = skelsPath.join("p5-ts");
+  const p5SkelPath = skelsPath.join("p5");
   const url = await getLatestP5jsUrl();
   await copy_dir(p5SkelPath, dstPath);
   await download(url!, dstPath.join("p5.js").toString());

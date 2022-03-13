@@ -6,8 +6,8 @@ Create Projects from already make skeletons
 
 **P5 type script**
 
-`deno run -A src/skel.ts projectNameHere p5-ts`
+`deno run -A src/skel.ts projectNameHere --p5`
 
 **Web type script**
 
-`deno run -A src/skel.ts projectNameHere web-ts`
+`deno run -A src/skel.ts projectNameHere --web`
