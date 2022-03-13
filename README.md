@@ -1,6 +1,6 @@
 # Skel
 
-Create Projects from already make skeletons
+Create Projects from already made skeletons
 
 ## Projects
 
