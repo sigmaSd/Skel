@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "Demo",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*/*"
+      ],
+      "js": [
+        "main.js"
+      ]
+    }
+  ]
+}
+
