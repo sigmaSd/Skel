@@ -1,5 +1,5 @@
-import { Path } from "./deps.ts";
-import { copy_dir, download } from "./utils.ts";
+import { Path } from "../deps.ts";
+import { copy_dir, download } from "../utils.ts";
 
 export async function getLatestP5jsUrl(): Promise<string | undefined> {
   const url = await fetch("https://github.com/processing/p5.js/releases/").then(

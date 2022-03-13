@@ -1,8 +1,8 @@
-import { Path } from "https://raw.githubusercontent.com/sigmaSd/Path/master/path.ts";
-import { createFox } from "./fox.ts";
-import { createP5 } from "./p5.ts";
-import { createPuppet } from "./puppet.ts";
-import { createWeb } from "./web.ts";
+import { Path } from "./deps.ts";
+import { createFox } from "./skels/fox.ts";
+import { createP5 } from "./skels/p5.ts";
+import { createPuppet } from "./skels/puppet.ts";
+import { createWeb } from "./skels/web.ts";
 
 async function newProject(
   { projectPath, skel }: { projectPath: Path; skel: string },

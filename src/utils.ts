@@ -1,4 +1,4 @@
-import { Path } from "https://raw.githubusercontent.com/sigmaSd/Path/master/path.ts";
+import { Path } from "./deps.ts";
 
 export async function download(url: string, filename: string) {
   const data = (await fetch(url)).arrayBuffer();

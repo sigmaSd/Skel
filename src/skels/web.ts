@@ -1,5 +1,5 @@
-import { Path } from "https://raw.githubusercontent.com/sigmaSd/Path/master/path.ts";
-import { copy_dir } from "./utils.ts";
+import { Path } from "../deps.ts";
+import { copy_dir } from "../utils.ts";
 
 export async function createWeb(
   skelsPath: Path,
