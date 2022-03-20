@@ -16,8 +16,8 @@ async function newProject(
       console.log(`successfully created ${projectPath.toString()}`);
       console.log(`To start:
                   - cd ${projectPath.toString()}
-                  - tsc -p tsconfig.json
-                  - npx browser-sync start --server -f -w
+                  - npx i
+                  - npx start
                   - vim sketch.ts
                   `);
 

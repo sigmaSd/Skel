@@ -19,9 +19,5 @@ export async function createP5(
   const p5SkelPath = skelsPath.join("p5");
   const url = await getLatestP5jsUrl();
   await copy_dir(p5SkelPath, dstPath);
-  await download(url!, dstPath.join("p5.js").toString());
-  await Deno.run({
-    cmd: ["npm", "install", "-D", "@types/p5"],
-    cwd: dstPath.toString(),
-  }).status();
+  await download(url!, dstPath.join("build/p5.js").toString());
 }
