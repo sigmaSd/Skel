@@ -1,4 +1,5 @@
 import { Path } from "./deps.ts";
+import { createDenoWeb } from "./skels/deno_web.ts";
 import { createFox } from "./skels/fox.ts";
 import { createP5 } from "./skels/p5.ts";
 import { createPuppet } from "./skels/puppet.ts";
@@ -51,6 +52,16 @@ async function newProject(
                   - cd ${projectPath.toString()}
                   - tsconfig -p tsconfig.json
                   - web-ext run
+                  `);
+      break;
+    }
+    case "--deno-web": {
+      await createDenoWeb(skelsPath, projectPath);
+      console.log(`successfully created ${projectPath.toString()}`);
+      console.log(`To start:
+                  - cd ${projectPath.toString()}
+                  - deno task start
+                  - firefox http://localhost:8000
                   `);
       break;
     }

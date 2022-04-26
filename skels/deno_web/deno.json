@@ -1,0 +1,12 @@
+{
+    "tasks": {
+        "bundle": "deno bundle --watch src/main.ts -- src/build/main.js",
+        "start": "deno task bundle & cd src && python -m http.server"
+    },
+    "compilerOptions": {
+        "lib": [
+            "esnext",
+            "dom"
+        ]
+    }
+}
