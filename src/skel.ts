@@ -4,6 +4,7 @@ import { createFox } from "./skels/fox.ts";
 import { createP5 } from "./skels/p5.ts";
 import { createPuppet } from "./skels/puppet.ts";
 import { createWeb } from "./skels/web.ts";
+import { createDps } from "./skels/dps.ts";
 
 async function newProject(
   { projectPath, skel }: { projectPath: Path; skel: string },
@@ -12,6 +13,14 @@ async function newProject(
     import.meta.url.replace("file://", ""),
   ).parent()!.parent()!.join("skels");
   switch (skel) {
+    case "--denops": {
+      await createDps(projectPath);
+      console.log(`successfully created ${projectPath.toString()}`);
+      console.log(
+        `- Add 'set runtimepath^=${projectPath.canonicalize()}' to your .vimrc`,
+      );
+      break;
+    }
     case "--p5": {
       await createP5(skelsPath, projectPath);
       console.log(`successfully created ${projectPath.toString()}`);
